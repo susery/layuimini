@@ -6,7 +6,7 @@ let env = 'dev';
 */
 function getEnvUrlPrefix(){
     if(env == 'dev'){//开发环境 api地址前缀
-        project_base_url = 'http://dev';
+        project_base_url = 'http://localhost:8080';
     }else if(env == 'test'){// 测试环境 api地址前缀
         project_base_url = 'test';
     }else if(env == 'prod'){// 生产环境 api地址前缀
