@@ -129,12 +129,19 @@
 </div>
 <script src="lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script src="js/common/common.js" charset="utf-8"></script>
+<script src="lib/axios/axios.min.js" charset="utf-8"></script>
 <script>
     layui.use(['jquery', 'layer', 'miniAdmin','miniTongji'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             miniAdmin = layui.miniAdmin,
             miniTongji = layui.miniTongji;
+        var obj =  GetRequest();
+        console.log(obj.userId);
+
+        var url =  getEnvUrlPrefix();
+        console.log(url);
 
         var options = {
             iniUrl: "api/init.json",    // 初始化接口
@@ -149,22 +156,15 @@
         };
         miniAdmin.render(options);
 
-        // 百度统计代码，只统计指定域名
-        miniTongji.render({
-            specific: true,
-            domains: [
-                '99php.cn',
-                'layuimini.99php.cn',
-                'layuimini-onepage.99php.cn',
-            ],
-        });
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {
-                window.location = 'page/login-1.html';
+                window.location = 'page/login/login.html';
             });
         });
     });
+
+
 </script>
 </body>
 </html>
